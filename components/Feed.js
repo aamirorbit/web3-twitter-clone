@@ -36,7 +36,7 @@ export default function Feed() {
     },
   ];
   return (
-    <div className="xl:ml-[370px] border-l border-r border-gray-200 sm:ml-[73px] flex-grow max-w-4xl">
+    <div className="xl:ml-[370px] border-l border-r border-gray-200 sm:ml-[73px] flex-grow max-w-5xl">
       <div className="flex py-2 px-3 top-0 z-50 bg-white border-b border-gray-200">
         <h2 className="text-lg sm:text-xl font-bold cursor-pointer">Home</h2>
         <div className="hoverEffect flex items-center justify-center px-0 ml-auto w-9 h-9">

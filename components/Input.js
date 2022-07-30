@@ -12,7 +12,7 @@ export default function Input() {
       />
       <div className="w-full divide-y divide-gray-200">
         <div className="">
-          <textarea className="w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700" rows="3" placeholder="What's happening?"></textarea>
+          <textarea className="p-2 w-full border-none focus:ring-0 text-lg placeholder-gray-700 tracking-wide min-h-[50px] text-gray-700" rows="3" placeholder="What's happening?"></textarea>
         </div>
         <div className="flex items-center justify-between pt-2.5">
             <div className="flex">
