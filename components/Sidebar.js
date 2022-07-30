@@ -24,7 +24,7 @@ export default function Sidebar() {
       </div>
 
       {/* Buttons */}
-      <button className="twitter-btn hidden xl:inline">Tweet</button>
+      <button className="twitter-btn">Tweet</button>
 
       {/* Mini profile */}
       <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
