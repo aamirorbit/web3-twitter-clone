@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Sidebar from '../components/sidebar'
 
 export default function Home() {
   return (
@@ -8,6 +9,16 @@ export default function Home() {
         <meta name="description" content="A basic Web3 Twitter clone app using NextJS and firebase" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <main className='flex min-h-screen mx-auto'>
+        <Sidebar/>
+
+        {/* Feed */}
+
+        {/* Widgets */}
+
+        {/* Modal */}
+
+      </main>
     </div>
   )
 }
