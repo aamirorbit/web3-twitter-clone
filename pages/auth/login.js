@@ -10,8 +10,9 @@ export default function login({ providers }) {
               src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
               alt="twitter logo"
             />
-            <p className="text-center text-sm italic my-10">
-              Welcome to Web3 Twitter Application
+            <h1>Web3 Twitter Application</h1>
+            <p className="text-center text-sm italic my-5">
+              A place where every NFT can be verify with an awsome tweet
             </p>
             <button
               onClick={() => signIn(provider.id, { callbackUrl: "/" })}
