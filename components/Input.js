@@ -80,7 +80,7 @@ export default function Input() {
               <textarea
                 className="p-2 w-full border-none focus:ring-0 text-lg tracking-wide min-h-[50px] text-gray-700"
                 rows="3"
-                placeholder="What's in your mind? share it to the world"
+                placeholder="What is in your mind? share it to the world"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
               />
