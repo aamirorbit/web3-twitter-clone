@@ -12,6 +12,9 @@ import {
 } from 'firebase/firestore'
 import { db, storage } from '../firebase'
 import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+import { useRecoilState } from 'recoil'
+import { nftModalState, nftUrlState } from '../atom/modalAtom'
+import { useMoralis } from "react-moralis";
 
 export default function Input() {
   const { data: session } = useSession()
@@ -20,6 +23,9 @@ export default function Input() {
   const [selectedFile, setSelectedFile] = useState(null)
   const [uploadingState, setUploadingState] = useState(false)
   const [nftState, setNftState] = useState(false)
+  const [open, setOpen] = useRecoilState(nftModalState)
+  const [nftUrl, setUrlNft] = useRecoilState(nftUrlState)
+  const { authenticate, isAuthenticated } = useMoralis();
 
   const clearSelectedField = () => {
     setSelectedFile(null)
@@ -32,7 +38,7 @@ export default function Input() {
     const docRef = await addDoc(collection(db, 'posts'), {
       userId: session.user.id,
       text: input,
-      userImg: session.user.image,
+      userImg: session.user.image || session.user.altImage,
       timestamp: serverTimestamp(),
       name: session.user.name,
       username: session.user.username,
@@ -71,7 +77,7 @@ export default function Input() {
       {session && (
         <div className="flex  border-b border-gray-200 p-3 space-x-3">
           <img
-            src={session.user.image}
+            src={session.user.image || session.user.altImage}
             alt="User image"
             className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
           />
@@ -113,6 +119,7 @@ export default function Input() {
                   <EmojiHappyIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100" />
                 </div>
                 <FontAwesomeIcon
+                  onClick={isAuthenticated ? (() => setOpen(!open)) : (() => authenticate())}
                   icon={faEthereum}
                   className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100"
                 />

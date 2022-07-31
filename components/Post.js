@@ -17,6 +17,7 @@ import { db, storage } from '../firebase'
 import { signIn, useSession } from 'next-auth/react'
 import { useState, useEffect } from 'react'
 import { useRecoilState } from 'recoil'
+import { deleteObject, ref } from "firebase/storage";
 import { modalState, postIdState } from '../atom/modalAtom'
 import { useRouter } from 'next/router'
 

@@ -10,6 +10,15 @@ npm run dev
 yarn dev
 ```
 
+## .env.local
+```bash
+NEXT_PUBLIC_FIREBASE_API_KEY=
+Google_CLIENT_ID=
+Google_CLIENT_SECRET=
+NEXT_PUBLIC_MORALIS_SERVER_URL=
+NEXT_PUBLIC_MORALIS_APP_ID=
+```
+
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.

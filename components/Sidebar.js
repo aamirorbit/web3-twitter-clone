@@ -11,6 +11,7 @@ import {
   DotsCircleHorizontalIcon,
 } from '@heroicons/react/outline'
 import { useSession, signOut } from 'next-auth/react'
+import fetchNftMetadata from '../service/fetchNftMetadata';
 
 export default function Sidebar() {
   const { data: session } = useSession()
@@ -19,6 +20,7 @@ export default function Sidebar() {
       {/* Twitter Logo */}
       <div className="xl:items-start">
         <Image
+          onClick={()=> fetchNftMetadata("0xEd2c91c774cCCa85Cc219a012Fb1DD7C473ED847")}
           width="50"
           height="50"
           src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
@@ -54,7 +56,7 @@ export default function Sidebar() {
           </button>
           <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
             <img
-              src={session.user.image}
+              src={session.user.image || session.user.altImage}
               alt="User Image"
               className="h-10 w-10 rounded-full mr-2"
             />
