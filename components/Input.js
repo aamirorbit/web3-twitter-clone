@@ -38,7 +38,7 @@ export default function Input() {
     const docRef = await addDoc(collection(db, 'posts'), {
       userId: session.user.id,
       text: input,
-      userImg: session.user.image,
+      userImg: session.user.image || session.user.altImage,
       timestamp: serverTimestamp(),
       name: session.user.name,
       username: session.user.username,
@@ -77,7 +77,7 @@ export default function Input() {
       {session && (
         <div className="flex  border-b border-gray-200 p-3 space-x-3">
           <img
-            src={session.user.image}
+            src={session.user.image || session.user.altImage}
             alt="User image"
             className="h-11 w-11 rounded-full cursor-pointer hover:brightness-95"
           />

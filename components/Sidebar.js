@@ -54,7 +54,7 @@ export default function Sidebar() {
           </button>
           <div className="hoverEffect text-gray-700 flex items-center justify-center xl:justify-start mt-auto">
             <img
-              src={session.user.image}
+              src={session.user.image || session.user.altImage}
               alt="User Image"
               className="h-10 w-10 rounded-full mr-2"
             />
