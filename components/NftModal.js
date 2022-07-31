@@ -1,39 +1,29 @@
 import { useRecoilState } from 'recoil'
 import { nftModalState, nftUrlState } from '../atom/modalAtom'
 import Modal from 'react-modal'
+import { useMoralis } from "react-moralis";
+import fetchNftMetadata from '../service/fetchNftMetadata';
 
 export default function NftModal() {
-  const [open, setOpen] = useRecoilState(nftModalState)
+  const [nftOpen, setNftOpen] = useRecoilState(nftModalState)
   const [nftUrl, sefNftUrl] = useRecoilState(nftUrlState)
+  const { isAuthenticated, user } = useMoralis();
+  let nfts = fetchNftMetadata(user.get("ethAddress"));
 
   return (
     <div>
-      {open && (
+      {nftOpen && isAuthenticated && (
         <Modal
-          isOpen={open}
-          onRequestClose={() => setOpen(false)}
+          isOpen={nftOpen}
+          onRequestClose={() => setNftOpen(false)}
         >
           <div className="overflow-x-autoflex flex flex-col space-y-2 m-5">
-            <div >
-              <h1>NFT 1</h1>
-              <img on src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop" />
+            {nfts.map((nft)=> (
+            <div key={nft.address} >
+              <h1>{nft.name}</h1>
+              <img src={nft.url} />
             </div>
-            <div >
-              <h1>NFT 2</h1>
-              <img src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop" />
-            </div>
-            <div >
-              <h1>NFT 3</h1>
-              <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop" />
-            </div>
-            <div >
-              <h1>NFT 4</h1>
-              <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop" />
-            </div>
-            <div >
-              <h1>NFT 5</h1>
-              <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop" />
-            </div>
+            ))}
           </div>
         </Modal>
       )}
