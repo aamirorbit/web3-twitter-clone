@@ -1,49 +1,45 @@
-import { useRecoilState } from "recoil";
-import { modalState, postIdState } from "../atom/modalAtom";
-import Modal from "react-modal";
-import {
-  EmojiHappyIcon,
-  PhotographIcon,
-  XIcon,
-} from "@heroicons/react/outline";
-import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { useRecoilState } from 'recoil'
+import { modalState, postIdState } from '../atom/modalAtom'
+import Modal from 'react-modal'
+import { EmojiHappyIcon, PhotographIcon, XIcon } from '@heroicons/react/outline'
+import { useEffect, useState } from 'react'
+import { db } from '../firebase'
 import {
   addDoc,
   collection,
   doc,
   onSnapshot,
   serverTimestamp,
-} from "firebase/firestore";
-import Moment from "react-moment";
-import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
+} from 'firebase/firestore'
+import Moment from 'react-moment'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 export default function CommentModal() {
-  const [open, setOpen] = useRecoilState(modalState);
-  const [postId] = useRecoilState(postIdState);
-  const [post, setPost] = useState({});
-  const [input, setInput] = useState("");
-  const { data: session } = useSession();
-  const router = useRouter();
+  const [open, setOpen] = useRecoilState(modalState)
+  const [postId] = useRecoilState(postIdState)
+  const [post, setPost] = useState({})
+  const [input, setInput] = useState('')
+  const { data: session } = useSession()
+  const router = useRouter()
 
   useEffect(() => {
-    onSnapshot(doc(db, "posts", postId), (snapshot) => {
-      setPost(snapshot);
-    });
-  }, [postId, db]);
+    onSnapshot(doc(db, 'posts', postId), (snapshot) => {
+      setPost(snapshot)
+    })
+  }, [postId, db])
 
   async function sendComment() {
-    await addDoc(collection(db, "posts", postId, "comments"), {
+    await addDoc(collection(db, 'posts', postId, 'comments'), {
       comment: input,
       name: session.user.name,
       username: session.user.username,
       userImg: session.user.image,
       timestamp: serverTimestamp(),
-    });
+    })
 
-    setOpen(false);
-    setInput("");
-    router.push(`/posts/${postId}`);
+    setOpen(false)
+    setInput('')
+    router.push(`/posts/${postId}`)
   }
   return (
     <div>
@@ -73,7 +69,7 @@ export default function CommentModal() {
                 {post?.data()?.name}
               </h4>
               <span className="text-sm sm:text-[15px]">
-                @{post?.data()?.username} -{" "}
+                @{post?.data()?.username} -{' '}
               </span>
               <span className="text-sm sm:text-[15px] hover:underline">
                 <Moment fromNow>{post?.data()?.timestamp?.toDate()}</Moment>
@@ -115,5 +111,5 @@ export default function CommentModal() {
         </Modal>
       )}
     </div>
-  );
+  )
 }
