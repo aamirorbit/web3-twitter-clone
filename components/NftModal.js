@@ -8,8 +8,10 @@ export default function NftModal() {
   const [nftOpen, setNftOpen] = useRecoilState(nftModalState)
   const [nftUrl, sefNftUrl] = useRecoilState(nftUrlState)
   const { isAuthenticated, user } = useMoralis();
-  let nfts = fetchNftMetadata(user.get("ethAddress"));
-
+  let nfts=[];
+  if(nftOpen && isAuthenticated) {
+    nfts = fetchNftMetadata(user.get("ethAddress")); 
+  }
   return (
     <div>
       {nftOpen && isAuthenticated && (
