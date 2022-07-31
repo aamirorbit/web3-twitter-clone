@@ -4,7 +4,7 @@ export default function login({ providers }) {
   return (
     <div className="flex justify-center h-full content-center">
         {Object.values(providers).map((provider) => (
-          <div className="flex flex-col items-center align-middle">
+          <div key={provider.name} className="flex flex-col items-center align-middle">
             <img
               className="w-36 object-cover"
               src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png"
