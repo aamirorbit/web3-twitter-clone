@@ -9,7 +9,7 @@ export default function Sidebar() {
   return (
     <div className='bg-white flex flex-col p-2 items-center fixed h-full xl:ml-24'>
       {/* Twitter Logo */}
-      <div className="hoverEffect xl:items-start">
+      <div className="xl:items-start">
         <Image width="50" height= "50" src="https://help.twitter.com/content/dam/help-twitter/brand/logo.png" />
       </div>
 

@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsis } from "@fortawesome/free-solid-svg-icons"
 import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+import Moment from 'react-moment';
 
 export default function Post({ post }) {
   return (
@@ -22,7 +23,7 @@ export default function Post({ post }) {
             </h4>
             <span className="text-sm sm:text-[15px]">@{post.data().username} - </span>
             <span className="text-sm sm:text-[15px] hover:underline">
-              {post.timestamp}
+            <Moment fromNow>{post.data().timestamp.toDate()}</Moment>
             </span>
           </div>
           <FontAwesomeIcon icon={post.data().nft === 'true' ? faEthereum : faEllipsis } className="h-10 hoverEffect w-10 hover:bg-sky-100 hover:text-sky-500 p-2"/>
