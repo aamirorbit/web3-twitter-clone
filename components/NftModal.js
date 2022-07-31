@@ -21,7 +21,7 @@ export default function NftModal() {
             {nfts.map((nft)=> (
             <div key={nft.address} >
               <h1>{nft.name}</h1>
-              <img src={nft.url} />
+              <img onClick={()=>sefNftUrl(nft.url)} src={nft.url} />
             </div>
             ))}
           </div>
