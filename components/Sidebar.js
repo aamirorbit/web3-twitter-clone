@@ -9,7 +9,6 @@ import {
   ClipboardIcon,
   UserIcon,
   DotsCircleHorizontalIcon,
-  DotsHorizontalIcon,
 } from '@heroicons/react/outline'
 import { useSession, signOut } from 'next-auth/react'
 

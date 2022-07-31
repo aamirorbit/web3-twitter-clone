@@ -1,19 +1,14 @@
 import {
-  ChartBarIcon,
   ChatIcon,
   DotsHorizontalIcon,
-  HeartIcon,
-  ShareIcon,
   TrashIcon,
 } from '@heroicons/react/outline'
-import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import Moment from 'react-moment'
 import {
   collection,
   deleteDoc,
   doc,
   onSnapshot,
-  setDoc,
 } from 'firebase/firestore'
 import { db } from '../firebase'
 import { signIn, useSession } from 'next-auth/react'

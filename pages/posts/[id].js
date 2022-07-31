@@ -7,7 +7,7 @@ import Post from '../../components/Post'
 import { useRouter } from 'next/router'
 import { useEffect, useState } from 'react'
 import { collection, doc, onSnapshot, orderBy, query } from 'firebase/firestore'
-import Comment from '../../components/comment'
+import Comment from '../../components/Comment'
 import { db } from '../../firebase'
 
 export default function PostPage() {
