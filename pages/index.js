@@ -3,7 +3,7 @@ import Feed from '../components/Feed'
 import Sidebar from '../components/Sidebar'
 import Widgets from '../components/Widgets'
 import CommentModal from "../components/CommentModal";
-import NftModal from '../components/nftModal';
+import NftModal from '../components/NftModal';
 
 export default function Home() {
   return (
