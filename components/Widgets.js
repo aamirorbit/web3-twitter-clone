@@ -1,4 +1,4 @@
-import AuthBtn from "./AuthBtn"
+import AuthBtn from './AuthBtn'
 
 export default function Widgets() {
   return (
