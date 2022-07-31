@@ -10,7 +10,7 @@ npm run dev
 yarn dev
 ```
 
-## env.local
+## .env.local
 ```bash
 NEXT_PUBLIC_FIREBASE_API_KEY=
 Google_CLIENT_ID=

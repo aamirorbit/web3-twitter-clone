@@ -3,6 +3,7 @@ import Feed from '../components/Feed'
 import Sidebar from '../components/Sidebar'
 import Widgets from '../components/Widgets'
 import CommentModal from "../components/CommentModal";
+import NftModal from '../components/nftModal';
 
 export default function Home() {
   return (
@@ -17,6 +18,7 @@ export default function Home() {
         <Feed/>
         <Widgets/>
         <CommentModal/>
+        <NftModal/>
       </main>
     </div>
   )
