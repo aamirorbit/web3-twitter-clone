@@ -10,4 +10,25 @@ export default NextAuth({
     }),
     // ...add more providers here
   ],
+  pages:{
+      signIn: "/auth/login"
+  },
+  callbacks: {
+    session: async ({ session, token }) => {
+      if (session?.user) {
+        session.user.id = token.uid;
+        session.user.username = session.user.email.split("@")[0]
+      }
+      return session;
+    },
+    jwt: async ({ user, token }) => {
+      if (user) {
+        token.uid = user.id;
+      }
+      return token;
+    },
+  },
+  session: {
+    strategy: 'jwt',
+  },
 })
