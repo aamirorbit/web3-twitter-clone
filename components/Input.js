@@ -25,7 +25,7 @@ export default function Input() {
     setUploadingState(true);
 
     const docRef = await addDoc(collection(db, "posts"), {
-      id: session.user.id,
+      userId: session.user.id,
       text: input,
       userImg: session.user.image,
       timestamp: serverTimestamp(),
@@ -47,6 +47,7 @@ export default function Input() {
     setInput("")
     setSelectedFile(null)
     setUploadingState(false);
+    setNftState(false)
   }
 
   const addImageToPost = (e) => {
