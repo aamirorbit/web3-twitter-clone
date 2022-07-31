@@ -1041,6 +1041,11 @@
   "resolved" "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.4.206.tgz"
   "version" "1.4.206"
 
+"emoji-picker-react@^3.6.0":
+  "integrity" "sha512-J5RhEYfxpJQ70dQrLx7E6dKdVOmXI1TXIwTspK/tqwInFDk69a+IvbNJ8X1Xd8MbIA/k+ybreZop7AEncH5jsw=="
+  "resolved" "https://registry.npmjs.org/emoji-picker-react/-/emoji-picker-react-3.6.0.tgz"
+  "version" "3.6.0"
+
 "emoji-regex@^8.0.0":
   "integrity" "sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A=="
   "resolved" "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz"

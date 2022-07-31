@@ -19,6 +19,7 @@ export default function Input() {
   const filePickerRef = useRef(null);
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadingState, setUploadingState] = useState(false);
+  const [nftState, setNftState] = useState(false);
 
   const sendPost = async () => {
     setUploadingState(true);
@@ -30,6 +31,7 @@ export default function Input() {
       timestamp: serverTimestamp(),
       name: session.user.name,
       username: session.user.username,
+      nft: nftState,
     });
 
     const imageRef = ref(storage, `posts/${docRef.id}/image`);
@@ -80,7 +82,7 @@ export default function Input() {
             <div className="relative">
               <XIcon
                   onClick={() => setSelectedFile(null)}
-                  className="w-5 m-2 text-white absolute cursor-pointer shadow-md shadow-white rounded-full bottom-0 right-0"
+                  className="w-5 m-2 border border-white text-white absolute cursor-pointer rounded-full bottom-0 right-0"
                 />
               <img src={selectedFile} className={`w-full ${uploadingState ? "animate-pulse" : ""}`} />
             </div>
@@ -96,7 +98,7 @@ export default function Input() {
                         onChange={addImageToPost}
                       />
                   <EmojiHappyIcon className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100"/>
-                  <FontAwesomeIcon icon={faEthereum} className="h-10 w-10 hoverEffect p-2 text-sky-500 hover:bg-sky-100"/>
+                  <FontAwesomeIcon icon={faEthereum} className="h-6 w-6 hoverEffect p-2 text-sky-500 hover:bg-sky-100"/>
               </div>
               <button onClick={sendPost} disabled={!input.trim()} className="twitter-btn w-24 h-10 disabled:opacity-50">Tweet</button>
             </div>

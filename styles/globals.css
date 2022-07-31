@@ -4,7 +4,7 @@
 
 @layer components{
   .hoverEffect{
-      @apply cursor-pointer rounded-full xl:w-auto h-[52px] xl:h-auto xl:p-3
+      @apply cursor-pointer hover:bg-gray-200 rounded-full xl:w-auto h-[52px] xl:h-auto xl:p-3
   }
   .twitter-btn{
     @apply bg-blue-400 text-white rounded-full w-56 h-12 font-bold shadow-md hover:brightness-95 text-lg xl:inline
