@@ -12,7 +12,6 @@ export default function fetchNftMetadata(address) {
         nfts.push(nft)
       }
     });
-    console.log(nfts)
   })
   .catch(console.error);
   return nfts;

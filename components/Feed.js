@@ -1,4 +1,4 @@
-import { SparklesIcon } from '@heroicons/react/outline'
+import { MenuIcon } from '@heroicons/react/outline'
 import Input from './Input'
 import Post from './Post'
 import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
@@ -7,7 +7,7 @@ import { db } from '../firebase'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useRouter } from 'next/router'
 
-export default function Feed() {
+export default function Feed(display) {
   const [posts, setPosts] = useState([])
   const router = useRouter()
 
@@ -32,7 +32,7 @@ export default function Feed() {
           Home
         </h2>
         <div className="hoverEffect flex items-center justify-center px-0 ml-auto w-9 h-9">
-          <SparklesIcon className="h-5" />
+          <MenuIcon className="h-5" onClick={()=> display.setSidebarDisplay(!display.sidebarDisplay)} />
         </div>
       </div>
       <Input />
