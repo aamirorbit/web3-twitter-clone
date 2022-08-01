@@ -4,8 +4,10 @@ import Sidebar from '../components/Sidebar'
 import Widgets from '../components/Widgets'
 import CommentModal from "../components/CommentModal";
 import NftModal from '../components/NftModal';
+import { useState } from 'react'
 
 export default function Home() {
+  const [sidebarDisplay, setSidebarDisplay] = useState(false)
   return (
     <div>
       <Head>
@@ -14,8 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className='flex min-h-screen mx-auto'>
-        <Sidebar/>
-        <Feed/>
+        <Sidebar sidebarDisplay={sidebarDisplay}/>
+        <Feed setSidebarDisplay= {setSidebarDisplay} sidebarDisplay= {sidebarDisplay}/>
         <Widgets/>
         <CommentModal/>
         <NftModal/>
